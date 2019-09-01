@@ -279,7 +279,7 @@ def renew_certificate(pubkey, csr, email):
 
         # Step 10: save the token on the server
         os.system("mkdir -p " + home_dir + "/.well-known/acme-challenge")
-        file = open(home_dir + "/" + i['domain'] + "/" + responses[n]['uri'], "w")
+        file = open(home_dir + "/" + i['domain'] + "/httpdocs/" + responses[n]['uri'], "w")
         file.write(responses[n]['data'])
         file.close()
 
