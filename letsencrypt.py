@@ -351,7 +351,7 @@ def renew_certificate(pubkey, csr, email):
 
     # Step 14: Remove the acme.challenge files
     for n, i in enumerate(ids):
-        filename = home_dir + "/" + i['domain'] + "/" + responses[n]['uri']
+        filename = home_dir + "/" + i['domain'] + "/httpdocs/" + responses[n]['uri']
         os.remove(filename)
 
     # Step 15: Convert the signed cert from DER to PEM
