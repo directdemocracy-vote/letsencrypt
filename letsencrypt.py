@@ -278,7 +278,7 @@ def renew_certificate(pubkey, csr, email):
         tests[n]['sig64'] = _b64(tests[n]['sig'].read())
 
         # Step 10: save the token on the server
-        os.system("mkdir -p " + home_dir + "/.well-known/acme-challenge")
+        os.system("mkdir -p " + home_dir + "/" + i['domain'] + "/httpdocs/.well-known/acme-challenge")
         file = open(home_dir + "/" + i['domain'] + "/httpdocs/" + responses[n]['uri'], "w")
         file.write(responses[n]['data'])
         file.close()
