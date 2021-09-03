@@ -121,7 +121,7 @@ def get_crt(account_key, csr, acme_dir, log=LOGGER, CA=DEFAULT_CA, disable_check
 
     # get the ACME directory of urls
     log.info("Getting directory...")
-    directory_url = CA + "/directory" if CA != DEFAULT_CA else directory_url  # backwards compatibility with deprecated CA kwarg
+    directory_url = CA + "/directory" if CA != DEFAULT_CA else directory_url  # backwards compatibility with deprecated CA
     directory, _, _ = _do_request(directory_url, err_msg="Error getting directory")
     log.info("Directory found!")
 
@@ -219,6 +219,10 @@ def main(argv=None):
                              '/home/direeeti/www.directdemocracy.vote/httpdocs/.well-known/acme-challenge',
                              log=LOGGER, CA=DEFAULT_CA, disable_check=args.disable_check,
                              directory_url=DEFAULT_DIRECTORY_URL)
+    f = open("new_signed_chain.crt", "w")
+    f.write(signed_crt)
+    f.close()
+    signed_crt = urllib.quote_plus(signed_crt)
     f = open("domain.key", "r")
     key = urllib.quote_plus(f.read())
     f.close()
