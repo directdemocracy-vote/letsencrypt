@@ -219,10 +219,10 @@ def main(argv=None):
                              '/home/direeeti/www.directdemocracy.vote/httpdocs/.well-known/acme-challenge',
                              log=LOGGER, CA=DEFAULT_CA, disable_check=args.disable_check,
                              directory_url=DEFAULT_DIRECTORY_URL)
-    f = open("new_signed_chain.crt", "w")
-    f.write(signed_crt)
-    f.close()
-    signed_crt = urllib.quote_plus(signed_crt)
+        f = open("new_signed_chain.crt", "w")
+        f.write(signed_crt)
+        f.close()
+        signed_crt = urllib.quote_plus(signed_crt)
     f = open("domain.key", "r")
     key = urllib.quote_plus(f.read())
     f.close()
