@@ -227,7 +227,7 @@ def main(argv=None):
     key = urllib.quote_plus(f.read())
     f.close()
     domain = 'directdemocracy.vote'
-    subdomains = ['', 'www', 'app', 'judge', 'notary', 'station']
+    subdomains = ['', 'www', 'www-1', 'app', 'app-1', 'judge', 'judge-1', 'notary', 'notary-1', 'station', 'station-1']
     for subdomain in subdomains:
         if subdomain != '':
             subdomain += '.'
